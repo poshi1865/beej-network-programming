@@ -1,0 +1,25 @@
+An IPV4 address has 2 parts: Network and Host.
+
+Class A: 1 byte network and 3 bytes host.
+Class B: 2 bytes network and 2 bytes host.
+Class C: 3 bytes network and 1 byte host.
+
+For example, if 192.0.2.12 is a class C address, the network address is 192.0.2 and the Host portion is 12.
+
+The network portion of the IP address is generally described by something called as a 'netmask'.
+
+    netmask           AND     ip_address    =    network number
+
+    255.255.255.0     AND     192.0.2.12    =    192.0.2.0
+
+    Unfortunately, it turned out that this wasn’t fine-grained enough for the eventual needs of the Internet; 
+    We were running out of Class C networks quite quickly, and we were most definitely out of Class As.
+    To remedy this, The Powers That Be allowed for the netmask to be an arbitrary number of bits, not just 8, 16, or 24.
+    So you might have a netmask of, say 255.255.255.252, which is 30 bits of network, and 2 bits of host allowing for four hosts on the network.
+    (Note that the netmask is ALWAYS a bunch of 1-bits followed by a bunch of 0-bits.)
+    
+    New Style:
+    You just put a slash after the IP address, and then follow that by the number of network bits in decimal. Like this: 192.0.2.12/30.
+
+
+    NETWORK BYTE ORDER: BIG ENDIAN
